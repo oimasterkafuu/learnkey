@@ -1,0 +1,258 @@
+{
+    "show": {
+        "key-backtick": ["｀", "〜"],
+        "key-1": "ぬ",
+        "key-2": "ふ",
+        "key-3": ["あ", "ぁ"],
+        "key-4": ["う", "ぅ"],
+        "key-5": ["え", "ぇ"],
+        "key-6": ["お", "ぉ"],
+        "key-7": ["や", "ゃ"],
+        "key-8": ["ゆ", "ゅ"],
+        "key-9": ["よ", "ょ"],
+        "key-0": ["わ", "を"],
+        "key-minus": "ほ",
+        "key-equal": ["゜", "「"],
+        "key-backspace": "⌫",
+        "key-tab": "⇥",
+        "key-q": "た",
+        "key-w": "て",
+        "key-e": ["い", "ぃ"],
+        "key-r": "す",
+        "key-t": "か",
+        "key-y": "ん",
+        "key-u": "な",
+        "key-i": "に",
+        "key-o": "ら",
+        "key-p": "せ",
+        "key-left-bracket": ["゛", "」"],
+        "key-right-bracket": ["む", "ー"],
+        "key-backslash": "へ",
+        "key-capslock": "⇪",
+        "key-a": "ち",
+        "key-s": "と",
+        "key-d": "し",
+        "key-f": "は",
+        "key-g": "き",
+        "key-h": "く",
+        "key-j": "ま",
+        "key-k": "の",
+        "key-l": "り",
+        "key-semicolon": "れ",
+        "key-quote": ["け", "ろ"],
+        "key-enter": "↵",
+        "key-shift-left": "⇧",
+        "key-z": ["つ", "っ"],
+        "key-x": "さ",
+        "key-c": "そ",
+        "key-v": "ひ",
+        "key-b": "こ",
+        "key-n": "み",
+        "key-m": "も",
+        "key-comma": ["ね", "、"],
+        "key-period": ["る", "。"],
+        "key-slash": ["め", "・"],
+        "key-shift-right": "⇧",
+        "key-control": "⌃",
+        "key-space": "　"
+    },
+    "type": {
+        "key-backtick": {
+            "default": "｀",
+            "shift": "〜"
+        },
+        "key-1": {
+            "default": "ぬ"
+        },
+        "key-2": {
+            "default": "ふ"
+        },
+        "key-3": {
+            "default": "あ",
+            "shift": "ぁ"
+        },
+        "key-4": {
+            "default": "う",
+            "shift": "ぅ"
+        },
+        "key-5": {
+            "default": "え",
+            "shift": "ぇ"
+        },
+        "key-6": {
+            "default": "お",
+            "shift": "ぉ"
+        },
+        "key-7": {
+            "default": "や",
+            "shift": "ゃ"
+        },
+        "key-8": {
+            "default": "ゆ",
+            "shift": "ゅ"
+        },
+        "key-9": {
+            "default": "よ",
+            "shift": "ょ"
+        },
+        "key-0": {
+            "default": "わ",
+            "shift": "を"
+        },
+        "key-minus": {
+            "default": "ほ"
+        },
+        "key-equal": {
+            "default": "゜",
+            "shift": "「"
+        },
+        "key-backspace": {
+            "default": "\b"
+        },
+        "key-tab": {},
+        "key-q": {
+            "default": "た"
+        },
+        "key-w": {
+            "default": "て"
+        },
+        "key-e": {
+            "default": "い",
+            "shift": "ぃ"
+        },
+        "key-r": {
+            "default": "す"
+        },
+        "key-t": {
+            "default": "か"
+        },
+        "key-y": {
+            "default": "ん"
+        },
+        "key-u": {
+            "default": "な"
+        },
+        "key-i": {
+            "default": "に"
+        },
+        "key-o": {
+            "default": "ら"
+        },
+        "key-p": {
+            "default": "せ"
+        },
+        "key-left-bracket": {
+            "default": "゛",
+            "shift": "」"
+        },
+        "key-right-bracket": {
+            "default": "む",
+            "shift": "ー"
+        },
+        "key-backslash": {
+            "default": "へ"
+        },
+        "key-capslock": {},
+        "key-a": {
+            "default": "ち"
+        },
+        "key-s": {
+            "default": "と"
+        },
+        "key-d": {
+            "default": "し"
+        },
+        "key-f": {
+            "default": "は"
+        },
+        "key-g": {
+            "default": "き"
+        },
+        "key-h": {
+            "default": "く"
+        },
+        "key-j": {
+            "default": "ま"
+        },
+        "key-k": {
+            "default": "の"
+        },
+        "key-l": {
+            "default": "り"
+        },
+        "key-semicolon": {
+            "default": "れ"
+        },
+        "key-quote": {
+            "default": "け",
+            "shift": "ろ"
+        },
+        "key-enter": {},
+        "key-shift-left": {},
+        "key-z": {
+            "default": "つ",
+            "shift": "っ"
+        },
+        "key-x": {
+            "default": "さ"
+        },
+        "key-c": {
+            "default": "そ"
+        },
+        "key-v": {
+            "default": "ひ"
+        },
+        "key-b": {
+            "default": "こ"
+        },
+        "key-n": {
+            "default": "み"
+        },
+        "key-m": {
+            "default": "も"
+        },
+        "key-comma": {
+            "default": "ね",
+            "shift": "、"
+        },
+        "key-period": {
+            "default": "る",
+            "shift": "。"
+        },
+        "key-slash": {
+            "default": "め",
+            "shift": "・"
+        },
+        "key-shift-right": {},
+        "key-space": {
+            "default": " "
+        }
+    },
+    "multi": {
+        "か゛": "が",
+        "き゛": "ぎ",
+        "く゛": "ぐ",
+        "け゛": "げ",
+        "こ゛": "ご",
+        "さ゛": "ざ",
+        "し゛": "じ",
+        "す゛": "ず",
+        "せ゛": "ぜ",
+        "そ゛": "ぞ",
+        "た゛": "だ",
+        "ち゛": "ぢ",
+        "つ゛": "づ",
+        "て゛": "で",
+        "と゛": "ど",
+        "は゛": "ば",
+        "は゜": "ぱ",
+        "ひ゛": "び",
+        "ひ゜": "ぴ",
+        "ふ゛": "ぶ",
+        "ふ゜": "ぷ",
+        "へ゛": "べ",
+        "へ゜": "ぺ",
+        "ほ゛": "ぼ",
+        "ほ゜": "ぽ"
+    }
+}

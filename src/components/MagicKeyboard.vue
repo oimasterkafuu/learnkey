@@ -550,7 +550,7 @@ div.keyboard {
     box-shadow:
         0px 0px 20px rgba(0, 0, 0, 0.2),
         0px 0px 10px rgba(0, 0, 0, 0.1);
-    font-family: monospace;
+    /* font-family: monospace; */
 }
 
 @media (max-width: 420px) {
