@@ -137,7 +137,7 @@ export default {
                 clearTimeout(this.savedTimeout);
                 this.savedTimeout = setTimeout(() => {
                     this.rightInfo = 'oimaster';
-                }, 10000);
+                }, 5000);
 
                 try {
                     var list = [Bell1, Bell2];

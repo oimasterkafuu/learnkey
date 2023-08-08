@@ -27,10 +27,6 @@ main {
     }
 }
 
-.tips {
-    display: none;
-}
-
 @media (max-width: 420px) {
     /* hide all elements except .tips */
     #app {
@@ -39,6 +35,6 @@ main {
 
     /* show .tips */
     .tips {
-        display: block;
+        display: block !important;
     }
 }

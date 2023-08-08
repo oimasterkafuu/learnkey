@@ -29,14 +29,14 @@ for (let i = 0; i < array.length; i++) {
 }
 
 for (let i = 0; i < array.length; i++) {
-    array[i] = array[i][0].split(/({{photrans\|.+?\|.+?}})/);
+    array[i] = array[i][0].split(/({{[pP]hotrans\|.+?\|.+?}})/);
 }
 
 for (let i = 0; i < array.length; i++) {
     for (let j = 0; j < array[i].length; j++) {
-        if (array[i][j].match(/{{photrans\|.+?\|.+?}}/)) {
+        if (array[i][j].match(/{{[pP]hotrans\|.+?\|.+?}}/)) {
             array[i][j] = array[i][j].replace(
-                /{{photrans\|(.+?)\|(.+?)}}/,
+                /{{[pP]hotrans\|(.+?)\|(.+?)}}/,
                 '$1,$2'
             );
             array[i][j] = array[i][j].split(',');
