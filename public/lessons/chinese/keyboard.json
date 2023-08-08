@@ -1,17 +1,17 @@
 {
     "show": {
-        "key-backtick": ["`", "~"],
-        "key-1": ["1", "!"],
+        "key-backtick": ["·", "～"],
+        "key-1": ["1", "！"],
         "key-2": ["2", "@"],
         "key-3": ["3", "#"],
-        "key-4": ["4", "$"],
+        "key-4": ["4", "¥"],
         "key-5": ["5", "%"],
-        "key-6": ["6", "^"],
+        "key-6": ["6", "……"],
         "key-7": ["7", "&"],
         "key-8": ["8", "*"],
-        "key-9": ["9", "("],
-        "key-0": ["0", ")"],
-        "key-minus": ["-", "_"],
+        "key-9": ["9", "（"],
+        "key-0": ["0", "）"],
+        "key-minus": ["-", "——"],
         "key-equal": ["=", "+"],
         "key-backspace": "⌫",
         "key-tab": "⇥",
@@ -25,9 +25,9 @@
         "key-i": "I",
         "key-o": "O",
         "key-p": "P",
-        "key-left-bracket": ["[", "{"],
-        "key-right-bracket": ["]", "}"],
-        "key-backslash": ["\\", "|"],
+        "key-left-bracket": ["【", "「"],
+        "key-right-bracket": ["】", "」"],
+        "key-backslash": ["、", "｜"],
         "key-capslock": "⇪",
         "key-a": "A",
         "key-s": "S",
@@ -38,7 +38,7 @@
         "key-j": "J",
         "key-k": "K",
         "key-l": "L",
-        "key-semicolon": [";", ":"],
+        "key-semicolon": ["；", "："],
         "key-quote": ["'", "\""],
         "key-enter": "↵",
         "key-shift-left": "⇧",
@@ -49,21 +49,21 @@
         "key-b": "B",
         "key-n": "N",
         "key-m": "M",
-        "key-comma": [",", "<"],
-        "key-period": [".", ">"],
-        "key-slash": ["/", "?"],
+        "key-comma": ["，", "《"],
+        "key-period": ["。", "》"],
+        "key-slash": ["/", "？"],
         "key-shift-right": "⇧",
         "key-control": "⌃",
         "key-space": "　"
     },
     "type": {
         "key-backtick": {
-            "default": "`",
-            "shift": "~"
+            "default": "·",
+            "shift": "～"
         },
         "key-1": {
             "default": "1",
-            "shift": "!"
+            "shift": "！"
         },
         "key-2": {
             "default": "2",
@@ -75,7 +75,7 @@
         },
         "key-4": {
             "default": "4",
-            "shift": "$"
+            "shift": "¥"
         },
         "key-5": {
             "default": "5",
@@ -83,7 +83,7 @@
         },
         "key-6": {
             "default": "6",
-            "shift": "^"
+            "shift": "……"
         },
         "key-7": {
             "default": "7",
@@ -95,15 +95,15 @@
         },
         "key-9": {
             "default": "9",
-            "shift": "("
+            "shift": "（"
         },
         "key-0": {
             "default": "0",
-            "shift": ")"
+            "shift": "）"
         },
         "key-minus": {
             "default": "-",
-            "shift": "_"
+            "shift": "——"
         },
         "key-equal": {
             "default": "=",
@@ -154,16 +154,16 @@
             "capslock": "P"
         },
         "key-left-bracket": {
-            "default": "[",
-            "shift": "{"
+            "default": "【",
+            "shift": "「"
         },
         "key-right-bracket": {
-            "default": "]",
-            "shift": "}"
+            "default": "】",
+            "shift": "」"
         },
         "key-backslash": {
-            "default": "\\",
-            "shift": "|"
+            "default": "、",
+            "shift": "｜"
         },
         "key-capslock": {},
         "key-a": {
@@ -203,8 +203,8 @@
             "capslock": "L"
         },
         "key-semicolon": {
-            "default": ";",
-            "shift": ":"
+            "default": "；",
+            "shift": "："
         },
         "key-quote": {
             "default": "'",
@@ -241,16 +241,16 @@
             "capslock": "M"
         },
         "key-comma": {
-            "default": ",",
-            "shift": "<"
+            "default": "，",
+            "shift": "《"
         },
         "key-period": {
-            "default": ".",
-            "shift": ">"
+            "default": "。",
+            "shift": "》"
         },
         "key-slash": {
             "default": "/",
-            "shift": "?"
+            "shift": "？"
         },
         "key-shift-right": {},
         "key-space": {

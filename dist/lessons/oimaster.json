@@ -3,6 +3,10 @@
         "title": "英语",
         "description": "阅读令人向往的童话故事"
     },
+    "chinese": {
+        "title": "中文",
+        "description": "学习并欣赏古诗文，了解中国的历史文化"
+    },
     "japanese": {
         "title": "日语",
         "description": "在动漫歌曲中恢复元气"

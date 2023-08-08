@@ -180,7 +180,6 @@
         },
         "key-f": {
             "default": "f",
-
             "capslock": "F"
         },
         "key-g": {
