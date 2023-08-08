@@ -1,0 +1,262 @@
+{
+    "show": {
+        "key-backtick": ["`", "~"],
+        "key-1": ["1", "!"],
+        "key-2": ["2", "@"],
+        "key-3": ["3", "#"],
+        "key-4": ["4", "$"],
+        "key-5": ["5", "%"],
+        "key-6": ["6", "^"],
+        "key-7": ["7", "&"],
+        "key-8": ["8", "*"],
+        "key-9": ["9", "("],
+        "key-0": ["0", ")"],
+        "key-minus": ["-", "_"],
+        "key-equal": ["=", "+"],
+        "key-backspace": "⌫",
+        "key-tab": "⇥",
+        "key-q": "Q",
+        "key-w": "W",
+        "key-e": "E",
+        "key-r": "R",
+        "key-t": "T",
+        "key-y": "Y",
+        "key-u": "U",
+        "key-i": "I",
+        "key-o": "O",
+        "key-p": "P",
+        "key-left-bracket": ["[", "{"],
+        "key-right-bracket": ["]", "}"],
+        "key-backslash": ["\\", "|"],
+        "key-capslock": "⇪",
+        "key-a": "A",
+        "key-s": "S",
+        "key-d": "D",
+        "key-f": "F",
+        "key-g": "G",
+        "key-h": "H",
+        "key-j": "J",
+        "key-k": "K",
+        "key-l": "L",
+        "key-semicolon": [";", ":"],
+        "key-quote": ["'", "\""],
+        "key-enter": "↵",
+        "key-shift-left": "⇧",
+        "key-z": "Z",
+        "key-x": "X",
+        "key-c": "C",
+        "key-v": "V",
+        "key-b": "B",
+        "key-n": "N",
+        "key-m": "M",
+        "key-comma": [",", "<"],
+        "key-period": [".", ">"],
+        "key-slash": ["/", "?"],
+        "key-shift-right": "⇧",
+        "key-control": "⌃",
+        "key-space": "　"
+    },
+    "type": {
+        "key-backtick": {
+            "default": "`",
+            "shift": "~"
+        },
+        "key-1": {
+            "default": "1",
+            "shift": "!"
+        },
+        "key-2": {
+            "default": "2",
+            "shift": "@"
+        },
+        "key-3": {
+            "default": "3",
+            "shift": "#"
+        },
+        "key-4": {
+            "default": "4",
+            "shift": "$"
+        },
+        "key-5": {
+            "default": "5",
+            "shift": "%"
+        },
+        "key-6": {
+            "default": "6",
+            "shift": "^"
+        },
+        "key-7": {
+            "default": "7",
+            "shift": "&"
+        },
+        "key-8": {
+            "default": "8",
+            "shift": "*"
+        },
+        "key-9": {
+            "default": "9",
+            "shift": "("
+        },
+        "key-0": {
+            "default": "0",
+            "shift": ")"
+        },
+        "key-minus": {
+            "default": "-",
+            "shift": "_"
+        },
+        "key-equal": {
+            "default": "=",
+            "shift": "+"
+        },
+        "key-backspace": {
+            "default": "\b"
+        },
+        "key-tab": {},
+        "key-q": {
+            "default": "q",
+            "capslock": "Q"
+        },
+        "key-w": {
+            "default": "w",
+            "capslock": "W"
+        },
+        "key-e": {
+            "default": "e",
+            "capslock": "E"
+        },
+        "key-r": {
+            "default": "r",
+            "capslock": "R"
+        },
+        "key-t": {
+            "default": "t",
+            "capslock": "T"
+        },
+        "key-y": {
+            "default": "y",
+            "capslock": "Y"
+        },
+        "key-u": {
+            "default": "u",
+            "capslock": "U"
+        },
+        "key-i": {
+            "default": "i",
+            "capslock": "I"
+        },
+        "key-o": {
+            "default": "o",
+            "capslock": "O"
+        },
+        "key-p": {
+            "default": "p",
+            "capslock": "P"
+        },
+        "key-left-bracket": {
+            "default": "[",
+            "shift": "{"
+        },
+        "key-right-bracket": {
+            "default": "]",
+            "shift": "}"
+        },
+        "key-backslash": {
+            "default": "\\",
+            "shift": "|"
+        },
+        "key-capslock": {},
+        "key-a": {
+            "default": "a",
+            "capslock": "A"
+        },
+        "key-s": {
+            "default": "s",
+            "capslock": "S"
+        },
+        "key-d": {
+            "default": "d",
+            "capslock": "D"
+        },
+        "key-f": {
+            "default": "f",
+
+            "capslock": "F"
+        },
+        "key-g": {
+            "default": "g",
+            "capslock": "G"
+        },
+        "key-h": {
+            "default": "h",
+            "capslock": "H"
+        },
+        "key-j": {
+            "default": "j",
+            "capslock": "J"
+        },
+        "key-k": {
+            "default": "k",
+            "capslock": "K"
+        },
+        "key-l": {
+            "default": "l",
+            "capslock": "L"
+        },
+        "key-semicolon": {
+            "default": ";",
+            "shift": ":"
+        },
+        "key-quote": {
+            "default": "'",
+            "shift": "\""
+        },
+        "key-enter": {},
+        "key-shift-left": {},
+        "key-z": {
+            "default": "z",
+            "capslock": "Z"
+        },
+        "key-x": {
+            "default": "x",
+            "capslock": "X"
+        },
+        "key-c": {
+            "default": "c",
+            "capslock": "C"
+        },
+        "key-v": {
+            "default": "v",
+            "capslock": "V"
+        },
+        "key-b": {
+            "default": "b",
+            "capslock": "B"
+        },
+        "key-n": {
+            "default": "n",
+            "capslock": "N"
+        },
+        "key-m": {
+            "default": "m",
+            "capslock": "M"
+        },
+        "key-comma": {
+            "default": ",",
+            "shift": "<"
+        },
+        "key-period": {
+            "default": ".",
+            "shift": ">"
+        },
+        "key-slash": {
+            "default": "/",
+            "shift": "?"
+        },
+        "key-shift-right": {},
+        "key-space": {
+            "default": " "
+        }
+    },
+    "multi": {}
+}

@@ -1,0 +1,48 @@
+html,
+body {
+    height: 100%;
+    margin: 0 3%;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    font-family: 'Songti SC', 'Microsoft YaHei', 'SimSun', sans-serif;
+}
+
+header {
+    flex: 0 0 10%;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    flex: 0 0 5%;
+}
+
+@media (prefers-color-scheme: dark) {
+    html,
+    body {
+        background-color: black;
+        color: white;
+    }
+}
+
+.tips {
+    display: none;
+}
+
+@media (max-width: 420px) {
+    /* hide all elements except .tips */
+    #app {
+        display: none;
+    }
+
+    /* show .tips */
+    .tips {
+        display: block;
+    }
+}
