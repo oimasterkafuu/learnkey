@@ -19,8 +19,11 @@
                 @input="input"
                 :keyboard="keyboardJson"
                 :leftInfo="
-                    kpmSpeed > 10 ? 'Speed: ' + kpmSpeed + ' KPM' : 'oimaster'
+                    kpmSpeed > 10
+                        ? '当前速度：' + kpmSpeed + '键 / 分钟'
+                        : 'oimaster'
                 "
+                :rightInfo="rightInfo"
                 v-if="loaded && !finished"
             />
             <BeautifulProgress
@@ -41,6 +44,9 @@ import MagicViewer from '@/components/MagicViewer.vue';
 import SpinLoader from '@/components/SpinLoader.vue';
 import BeautifulProgress from '@/components/BeautifulProgress.vue';
 import FinishDialog from '@/components/UnitView/FinishDialog.vue';
+
+import Bell1 from '@/assets/bell1.wav';
+import Bell2 from '@/assets/bell2.wav';
 
 export default {
     name: 'UnitView',
@@ -68,7 +74,9 @@ export default {
             finished: false,
             keysIn10Seconds: 0,
             kpmSpeed: 0,
-            kpmTimer: null
+            kpmTimer: null,
+            savedTimeout: null,
+            rightInfo: 'oimaster'
         };
     },
     computed: {
@@ -112,10 +120,33 @@ export default {
 
             if (this.nextChar === null) {
                 ++this.rowId;
+                // save to local storage
+                localStorage.setItem(
+                    `oimaster-${this.id}-${this.unit}`,
+                    this.rowId
+                );
                 this.currInput = '';
                 if (this.rowId === this.unitContent.length) {
                     this.finished = true;
                     --this.rowId;
+                    // remove from local storage
+                    localStorage.removeItem(`oimaster-${this.id}-${this.unit}`);
+                }
+
+                this.rightInfo = '进度已经保存';
+                clearTimeout(this.savedTimeout);
+                this.savedTimeout = setTimeout(() => {
+                    this.rightInfo = 'oimaster';
+                }, 10000);
+
+                try {
+                    var list = [Bell1, Bell2];
+                    var enter = new Audio(
+                        list[Math.floor(Math.random() * list.length)]
+                    );
+                    enter.play();
+                } catch (e) {
+                    console.log(e);
                 }
             }
         },
@@ -143,6 +174,13 @@ export default {
             );
             const data = await response.json();
             this.unitContent = data;
+            // read from local storage
+            var savedRowId = localStorage.getItem(
+                `oimaster-${this.id}-${this.unit}`
+            );
+            if (savedRowId) {
+                this.rowId = parseInt(savedRowId);
+            }
             this.fetchKeyboardJson();
         },
         async fetchKeyboardJson() {

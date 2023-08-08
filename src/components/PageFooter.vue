@@ -1,5 +1,5 @@
 <template>
-    <footer>&copy; {{ copyright }} oimasterkafuu</footer>
+    <footer>Version {{ version }}, &copy; {{ copyright }} oimasterkafuu</footer>
 </template>
 
 <script>
@@ -12,6 +12,14 @@ export default {
             return `${startYear}${
                 startYear !== currentYear ? `-${currentYear}` : ''
             }`;
+        },
+        version() {
+            var version = process.env.VUE_APP_VERSION;
+            var versionArr = version.split('.');
+            if (versionArr[0] < 1) {
+                version += '-beta';
+            }
+            return 'v' + version;
         }
     }
 };

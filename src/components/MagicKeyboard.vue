@@ -395,7 +395,7 @@
                     error: highlighted['key-space'] === -1
                 }"
             />
-            <div class="spaceRight">oimaster</div>
+            <div class="spaceRight">{{ rightInfo }}</div>
         </div>
     </div>
 </template>
@@ -403,6 +403,11 @@
 <script>
 import Keys from '@/assets/keys.json';
 import MagicKey from '@/components/MagicKeyboard/MagicKey.vue';
+
+import Bell1 from '@/assets/bell1.wav';
+import Bell2 from '@/assets/bell2.wav';
+import Key from '@/assets/key.wav';
+import Space from '@/assets/space.wav';
 
 export default {
     name: 'MagicKeyboard',
@@ -416,6 +421,10 @@ export default {
             required: true
         },
         leftInfo: {
+            type: String,
+            default: 'oimaster'
+        },
+        rightInfo: {
             type: String,
             default: 'oimaster'
         }
@@ -446,6 +455,26 @@ export default {
             if (!keyId) return;
             this.highlighted[keyId] = -1;
         },
+        playSound(code) {
+            try {
+                if (code === 'Space') {
+                    var space = new Audio(Space);
+                    space.play();
+                } else if (code === 'Enter') {
+                    var list = [Bell1, Bell2];
+                    var enter = new Audio(
+                        list[Math.floor(Math.random() * list.length)]
+                    );
+                    enter.play();
+                } else {
+                    var other = new Audio(Key);
+                    other.play();
+                }
+            } catch (e) {
+                console.log('play sound error');
+                console.log(e);
+            }
+        },
         handleKeyDown(event) {
             const keyCode = event.code;
             const hasShift = event.shiftKey;
@@ -458,6 +487,7 @@ export default {
             } else if (keyCode.startsWith('Shift')) {
                 this.highlightKey(keyCode);
             } else {
+                this.playSound(keyCode);
                 var keyId = this.keys[keyCode];
                 if (!keyId) return;
                 var content = this.keyboard.type[keyId];
@@ -510,7 +540,7 @@ export default {
 <style scoped>
 div.keyboard {
     margin: 15px auto;
-    width: 80%;
+    width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -623,7 +653,8 @@ div.error {
         color: white;
     }
 
-    div.spaceLeft, div.spaceRight {
+    div.spaceLeft,
+    div.spaceRight {
         color: #444;
     }
 }

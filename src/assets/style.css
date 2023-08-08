@@ -19,10 +19,6 @@ main {
     flex: 1;
 }
 
-footer {
-    flex: 0 0 5%;
-}
-
 @media (prefers-color-scheme: dark) {
     html,
     body {
