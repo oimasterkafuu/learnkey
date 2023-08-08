@@ -2,7 +2,6 @@
     <div class="keyboard" id="keyboard">
         <div class="keyboardRow">
             <MagicKey
-                class="op"
                 :singleKey="keyboard.show['key-backtick']"
                 :class="{
                     highlighted: highlighted['key-backtick'] === 1,
@@ -104,7 +103,7 @@
         </div>
         <div class="keyboardRow">
             <MagicKey
-                class="tab op"
+                class="tab op left"
                 :singleKey="keyboard.show['key-tab']"
                 :class="{
                     highlighted: highlighted['key-tab'] === 1,
@@ -205,7 +204,7 @@
         </div>
         <div class="keyboardRow">
             <MagicKey
-                class="capslock op"
+                class="capslock op left"
                 :singleKey="keyboard.show['key-capslock']"
                 :class="{
                     highlighted: capslock
@@ -299,7 +298,7 @@
         </div>
         <div class="keyboardRow">
             <MagicKey
-                class="shift op"
+                class="shift op left"
                 :singleKey="keyboard.show['key-shift-left']"
                 :class="{
                     highlighted: highlighted['key-shift-left'] === 1,
@@ -404,10 +403,10 @@
 import Keys from '@/assets/keys.json';
 import MagicKey from '@/components/MagicKeyboard/MagicKey.vue';
 
-import Bell1 from '@/assets/bell1.wav';
-import Bell2 from '@/assets/bell2.wav';
-import Key from '@/assets/key.wav';
-import Space from '@/assets/space.wav';
+import Bell1 from '@/assets/sounds/bell1.wav';
+import Bell2 from '@/assets/sounds/bell2.wav';
+import Key from '@/assets/sounds/key.wav';
+import Space from '@/assets/sounds/space.wav';
 
 export default {
     name: 'MagicKeyboard',
@@ -567,6 +566,7 @@ div.keyboardRow {
 
 div.key.op {
     font-family:
+        'SF Pro',
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
@@ -579,7 +579,18 @@ div.key.op {
         'Helvetica Neue',
         sans-serif;
 
+    font-size: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+
+    padding: 3px;
+
     background-color: #eeeeee;
+}
+
+div.key.op.left {
+    justify-content: flex-start !important;
 }
 
 rt {

@@ -45,8 +45,8 @@ import SpinLoader from '@/components/SpinLoader.vue';
 import BeautifulProgress from '@/components/BeautifulProgress.vue';
 import FinishDialog from '@/components/UnitView/FinishDialog.vue';
 
-import Bell1 from '@/assets/bell1.wav';
-import Bell2 from '@/assets/bell2.wav';
+import Bell1 from '@/assets/sounds/bell1.wav';
+import Bell2 from '@/assets/sounds/bell2.wav';
 
 export default {
     name: 'UnitView',

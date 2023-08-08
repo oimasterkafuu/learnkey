@@ -8,7 +8,8 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-family: 'Songti SC', 'Microsoft YaHei', 'SimSun', sans-serif;
+    font-family: 'Songti SC', 'SF Pro', 'Helvetica Neue', Helvetica, Arial,
+        sans-serif;
 }
 
 header {

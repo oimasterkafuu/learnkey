@@ -4,7 +4,9 @@
 </template>
 
 <script>
+import '@/assets/webfont/font.css';
 import '@/assets/style.css';
+
 import PageFooter from '@/components/PageFooter.vue';
 export default {
     name: 'App',

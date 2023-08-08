@@ -14,7 +14,7 @@
         "key-minus": "ほ",
         "key-equal": ["゜", "「"],
         "key-backspace": "⌫",
-        "key-tab": "⇥",
+        "key-tab": "→",
         "key-q": "た",
         "key-w": "て",
         "key-e": ["い", "ぃ"],
@@ -40,7 +40,7 @@
         "key-l": "り",
         "key-semicolon": "れ",
         "key-quote": ["け", "ろ"],
-        "key-enter": "↵",
+        "key-enter": "⏎",
         "key-shift-left": "⇧",
         "key-z": ["つ", "っ"],
         "key-x": "さ",
@@ -225,7 +225,7 @@
         },
         "key-shift-right": {},
         "key-space": {
-            "default": " "
+            "default": "　"
         }
     },
     "multi": {
