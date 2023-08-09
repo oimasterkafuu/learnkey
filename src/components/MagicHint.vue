@@ -3,9 +3,10 @@
         <div class="hint" v-if="showHint">
             <MagicKey
                 v-for="(key, index) in answer"
-                :singleKey="keyboard.show[key]"
+                :singleKey="keyboard.show[key[0]]"
                 :key="index"
                 class="hint-key"
+                :class="{ unactive: !key[1] }"
             />
         </div>
         <div class="no-hint" v-else>
@@ -61,11 +62,19 @@ export default {
 
             for (var typeKey in this.keyboard.type) {
                 if (this.keyboard.type[typeKey].default === content) {
-                    return [typeKey];
+                    return [[typeKey, true]];
                 } else if (this.keyboard.type[typeKey].shift === content) {
-                    return ['key-shift-left', typeKey];
+                    return [
+                        ['key-shift-left', true],
+                        [typeKey, true],
+                        ['key-shift-left', false]
+                    ];
                 } else if (this.keyboard.type[typeKey].capslock === content) {
-                    return ['key-capslock', typeKey];
+                    return [
+                        ['key-capslock', true],
+                        [typeKey, true],
+                        ['key-capslock', false]
+                    ];
                 }
             }
 
@@ -96,5 +105,26 @@ export default {
     display: flex;
     align-items: center;
     opacity: 0.3;
+}
+
+.unactive {
+    /* draw a big red cross on the key */
+    position: relative;
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #f00;
+    }
+    &::before {
+        transform: rotate(45deg);
+    }
+    &::after {
+        transform: rotate(-45deg);
+    }
 }
 </style>
