@@ -89,7 +89,7 @@ export default {
     margin: 5px !important;
     padding: 5px;
     height: 30px;
-    width: 30px;
+    flex: unset !important;
 }
 
 .no-hint {

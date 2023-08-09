@@ -10,5 +10,9 @@
     "japanese": {
         "title": "日语",
         "description": "在动漫歌曲中恢复元气"
+    },
+    "chemistry": {
+        "title": "化学",
+        "description": "探索物质的组成和变化，揭示自然界的奥秘"
     }
 }

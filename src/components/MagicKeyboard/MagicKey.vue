@@ -1,6 +1,6 @@
 <template>
     <div class="key">
-        <div v-if="typeof singleKey === 'string'">{{ singleKey }}</div>
+        <span v-if="typeof singleKey === 'string'">{{ singleKey }}</span>
         <ruby v-else>
             {{ singleKey[0] }}
             <rt>{{ singleKey[1] }}</rt>
@@ -27,6 +27,7 @@ div.key {
     border: 1px solid #fff;
     border-radius: 5px;
     display: flex;
+    overflow: hidden;
     justify-content: center;
     align-items: center;
     background-color: #fff;
