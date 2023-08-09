@@ -6,6 +6,9 @@
             使用 <a href="https://github.com/oimasterkafuu/learnkey/blob/master/LICENSE">MIT</a> 协议开源
         </span>
         <span>
+            <span v-if="offline">
+                离线模式，
+            </span>
             &copy; {{ copyright }}
             <a href="https://github.com/oimasterkafuu/">oimasterkafuu</a>
         </span>
@@ -17,7 +20,8 @@ export default {
     name: 'PageFooter',
     data() {
         return {
-            appVersion: process.env.VUE_APP_VERSION
+            appVersion: process.env.VUE_APP_VERSION,
+            offline: navigator.onLine === false
         };
     },
     computed: {
