@@ -29,17 +29,10 @@ jobs:
         run: yarn install
       - name: Build
         run: yarn build
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload page artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dist'
       
       - name: Zip
         run: zip -r dist.zip dist
-      - name: Upload release artifact
+      - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
           name: dist
@@ -52,6 +45,19 @@ jobs:
       name: Production
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
+      - name: Download artifact
+        id: download
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+      - name: Unzip
+        run: unzip -o dist.zip
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+      - name: Upload page artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './dist'
       - name: Deploy to Pages
         id: deploy
         uses: actions/deploy-pages@v2
@@ -60,22 +66,32 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Download release artifact
+      - name: Download artifact
+        id: download
         uses: actions/download-artifact@v2
         with:
           name: dist
-          path: dist.zip
-
+      - name: SHA256
+        run: echo "::set-output name=sha256::$(sha256sum dist.zip | cut -d ' ' -f 1)"
+        id: sha256
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          files: dist.zip
+          files: './dist.zip'
           tag_name: ${{ github.ref }}
           name: ${{ github.ref_name }}
           body: |
+            ## Release ${{ github.ref_name }} :tada:
+
+            Hello, there :wave: We've got release ${{ github.ref_name }} for you!
+
             You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
 
-            Or, you can go to the [Online Demo](https://learn.oimaster.top/) to view the latest production version.
+            The SHA256 checksum of the `dist.zip` file is `${{ steps.sha256.outputs.sha256 }}`. You can use this to verify the integrity of the file. :lock:
+
+            Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version. :rocket:
+
+            Enjoy! :kissing_heart:
           draft: false
           prerelease: false
         env:

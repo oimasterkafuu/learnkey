@@ -15,6 +15,7 @@ export default {
     }
 };
 
+// eslint-disable-next-line
 console.log(
     '%cMade by oimaster with ❤️',
     'color: #8db3f1; font-size: 2em; font-weight: bold;'
