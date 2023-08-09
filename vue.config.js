@@ -12,7 +12,7 @@ module.exports = defineConfig({
     },
     pwa: {
         name: 'Learn Key',
-        themeColor: '#f3f3f3',
+        themeColor: '#8db3f1',
         iconPaths: {
             faviconSVG: null,
             favicon32: 'img/icons/favicon-32x32.png',
