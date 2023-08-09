@@ -1,7 +1,9 @@
 <template>
     <header>
         <h1 class="title">{{ title }}</h1>
-        <p class="description">{{ description }}</p>
+        <p class="description">
+            <span class="inner-description">{{ description }}</span>
+        </p>
     </header>
 </template>
 
@@ -30,13 +32,19 @@ header {
 }
 
 .title {
-    flex: 2;
+    flex: 0.6;
     text-align: center;
 }
 
 .description {
     flex: 1;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-description {
+    text-align: left;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -28,7 +28,9 @@ export default {
         aisatsu() {
             const now = new Date();
             const hour = now.getHours();
-            if (hour > 3 && hour < 7) {
+            if (hour < 3) {
+                return '睡不着吗？没关系，我会一直陪着你的，无论是否连接网络。';
+            } else if (hour < 7) {
                 return '这么早就来看我啦？是有什么高兴的事吗？';
             } else if (hour < 9) {
                 return '一日之际在于晨，要不来练个单元？';

@@ -33,12 +33,11 @@ export default {
 
 .title {
     margin: 0;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .description {
     margin: 0;
-    font-size: 14px;
     color: #666;
 }
 
