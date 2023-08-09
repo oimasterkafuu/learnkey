@@ -72,7 +72,8 @@ jobs:
         with:
           name: dist
       - name: SHA256
-        run: echo "::set-output name=sha256::$(sha256sum dist.zip | cut -d ' ' -f 1)"
+        # run: echo "::set-output name=sha256::$(sha256sum dist.zip | cut -d ' ' -f 1)"
+        run: echo "sha256=$(sha256sum dist.zip | cut -d ' ' -f 1)" >> $GITHUB_ENV
         id: sha256
       - name: Release
         uses: softprops/action-gh-release@v1
@@ -87,9 +88,9 @@ jobs:
 
             You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
 
-            The SHA256 checksum of the `dist.zip` file is `${{ steps.sha256.outputs.sha256 }}`. You can use this to verify the integrity of the file. :lock:
+            The SHA256 checksum of the `dist.zip` file is `${{ env.sha256 }}`. You can use this to verify the integrity of the file :lock:
 
-            Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version. :rocket:
+            Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before :wink:
 
             Enjoy! :kissing_heart:
           draft: false
