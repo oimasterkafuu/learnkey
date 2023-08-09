@@ -38,14 +38,10 @@ export default {
     },
     computed: {
         header() {
-            return this.headers[
-                Math.floor(Math.random() * this.headers.length)
-            ];
+            return this.headers[Math.floor(Math.random() * this.headers.length)];
         },
         content() {
-            return this.contents[
-                Math.floor(Math.random() * this.contents.length)
-            ];
+            return this.contents[Math.floor(Math.random() * this.contents.length)];
         }
     }
 };

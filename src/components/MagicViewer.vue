@@ -2,10 +2,7 @@
     <div class="viewer">
         <div class="viewer-main">
             <span v-for="(content, index) in render" :key="index">
-                <span
-                    v-if="typeof content.char === 'string'"
-                    :class="{ finished: content.finished }"
-                >
+                <span v-if="typeof content.char === 'string'" :class="{ finished: content.finished }">
                     <del v-for="(more, ind) in content.more" :key="ind">
                         {{ more }}
                     </del>
@@ -26,10 +23,7 @@
                             :key="index"
                             :class="{ finished: content.finished[index] }"
                         >
-                            <del
-                                v-for="(more, ind) in content.more[index]"
-                                :key="ind"
-                            >
+                            <del v-for="(more, ind) in content.more[index]" :key="ind">
                                 {{ more }}
                             </del>
                             <span>
@@ -90,8 +84,7 @@ export default {
     methods: {
         autoSize() {
             var viewerWidth = this.$el.offsetWidth - 32;
-            var viewerMainWidth =
-                this.$el.querySelector('.viewer-main').scrollWidth;
+            var viewerMainWidth = this.$el.querySelector('.viewer-main').scrollWidth;
             var widthScale = viewerWidth / viewerMainWidth;
 
             // var viewerHeight = this.$el.offsetHeight - 32;
@@ -105,15 +98,11 @@ export default {
             // var scale = Math.min(widthScale, heightScale);
             var scale = widthScale;
 
-            var currScale = parseFloat(
-                getComputedStyle(this.$el.querySelector('.viewer-main'))
-                    .fontSize
-            );
+            var currScale = parseFloat(getComputedStyle(this.$el.querySelector('.viewer-main')).fontSize);
 
             var targetSize = Math.min(32, scale * currScale);
 
-            this.$el.querySelector('.viewer-main').style.fontSize =
-                targetSize + 'px';
+            this.$el.querySelector('.viewer-main').style.fontSize = targetSize + 'px';
         }
     },
     mounted() {
@@ -128,10 +117,7 @@ export default {
                     this.render.push({
                         char: this.newRow[i][j],
                         finished: curr <= finished,
-                        more:
-                            curr === finished + 1
-                                ? this.currInput.slice(curr)
-                                : ''
+                        more: curr === finished + 1 ? this.currInput.slice(curr) : ''
                     });
                     ++curr;
                 }
@@ -140,10 +126,7 @@ export default {
                 for (var _j = 0; _j < this.newRow[i][1].length; ++_j) {
                     finishArray.push({
                         finished: curr <= finished,
-                        more:
-                            curr === finished + 1
-                                ? this.currInput.slice(curr)
-                                : ''
+                        more: curr === finished + 1 ? this.currInput.slice(curr) : ''
                     });
                     ++curr;
                 }

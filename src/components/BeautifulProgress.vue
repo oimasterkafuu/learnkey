@@ -1,13 +1,7 @@
 <template>
     <div class="progress">
-        <div
-            class="progress-bar"
-            role="progressbar"
-            :style="{ width: progress * 100 + '%' }"
-        >
-            <div class="progress-text" v-if="Math.round(progress * 100) > 0">
-                {{ Math.round(progress * 100) }}%
-            </div>
+        <div class="progress-bar" role="progressbar" :style="{ width: progress * 100 + '%' }">
+            <div class="progress-text" v-if="Math.round(progress * 100) > 0">{{ Math.round(progress * 100) }}%</div>
         </div>
     </div>
 </template>

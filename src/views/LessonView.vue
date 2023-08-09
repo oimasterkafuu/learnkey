@@ -1,11 +1,7 @@
 <template>
     <PageHeader :title="lessonTitle" :description="lessonDescription" />
     <main>
-        <SelectBar
-            :options="options"
-            @selected="optionSelected"
-            v-if="loaded"
-        />
+        <SelectBar :options="options" @selected="optionSelected" v-if="loaded" />
     </main>
     <SpinLoader v-if="!loaded" />
 </template>

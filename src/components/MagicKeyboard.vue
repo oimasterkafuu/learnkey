@@ -460,9 +460,7 @@ export default {
                 space.play();
             } else if (code === 'Enter') {
                 var list = [Bell1, Bell2];
-                var enter = new Audio(
-                    list[Math.floor(Math.random() * list.length)]
-                );
+                var enter = new Audio(list[Math.floor(Math.random() * list.length)]);
                 enter.play();
             } else {
                 var other = new Audio(Key);
@@ -510,10 +508,7 @@ export default {
         },
         handleResize() {
             const keyboard = document.getElementById('keyboard');
-            keyboard.style.height = `${Math.max(
-                keyboard.offsetWidth / 3,
-                250
-            )}px`;
+            keyboard.style.height = `${Math.max(keyboard.offsetWidth / 3, 250)}px`;
         }
     },
     mounted() {

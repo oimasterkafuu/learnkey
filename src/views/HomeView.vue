@@ -1,11 +1,7 @@
 <template>
-    <PageHeader title="欢迎来到 Learn Key！" :description="aisatsu" />
+    <PageHeader title="欢迎来到 Learn Key" :description="aisatsu" />
     <main>
-        <SelectBar
-            :options="options"
-            @selected="optionSelected"
-            v-if="loaded"
-        />
+        <SelectBar :options="options" @selected="optionSelected" v-if="loaded" />
     </main>
     <SpinLoader v-if="!loaded" />
 </template>
@@ -32,7 +28,7 @@ export default {
         aisatsu() {
             const now = new Date();
             const hour = now.getHours();
-            if (hour < 6) {
+            if (hour > 3 && hour < 7) {
                 return '这么早就来看我啦？是有什么高兴的事吗？';
             } else if (hour < 9) {
                 return '一日之际在于晨，要不来练个单元？';

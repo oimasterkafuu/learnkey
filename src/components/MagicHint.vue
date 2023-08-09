@@ -11,10 +11,7 @@
         </div>
         <div class="no-hint" v-else>
             按下
-            <MagicKey
-                :singleKey="keyboard.show['key-control']"
-                class="hint-key"
-            />
+            <MagicKey :singleKey="keyboard.show['key-control']" class="hint-key" />
             键显示提示！
         </div>
     </div>

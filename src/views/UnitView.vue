@@ -1,12 +1,7 @@
 <template>
     <PageHeader :title="unitTitle" :description="unitDescription" />
     <main>
-        <MagicViewer
-            :row="unitContent[rowId]"
-            :currInput="currInput"
-            v-if="loaded && !finished"
-            :key="currInput"
-        />
+        <MagicViewer :row="unitContent[rowId]" :currInput="currInput" v-if="loaded && !finished" :key="currInput" />
         <MagicHint
             :keyboard="keyboardJson"
             :content="nextChar"
@@ -18,18 +13,11 @@
             <MagicKeyboard
                 @input="input"
                 :keyboard="keyboardJson"
-                :leftInfo="
-                    kpmSpeed > 10
-                        ? '当前速度：' + kpmSpeed + '键 / 分钟'
-                        : 'oimaster'
-                "
+                :leftInfo="kpmSpeed > 10 ? '当前速度：' + kpmSpeed + '键 / 分钟' : 'oimaster'"
                 :rightInfo="rightInfo"
                 v-if="loaded && !finished"
             />
-            <BeautifulProgress
-                :progress="rowId / unitContent.length"
-                v-if="loaded && !finished"
-            />
+            <BeautifulProgress :progress="rowId / unitContent.length" v-if="loaded && !finished" />
         </div>
     </main>
     <SpinLoader v-if="!loaded" />
@@ -107,9 +95,7 @@ export default {
                 var found = false;
                 for (var key in this.keyboardJson.multi) {
                     if (this.currInput.endsWith(key)) {
-                        this.currInput =
-                            this.currInput.slice(0, -key.length) +
-                            this.keyboardJson.multi[key];
+                        this.currInput = this.currInput.slice(0, -key.length) + this.keyboardJson.multi[key];
                         found = true;
                         break;
                     }
@@ -121,10 +107,7 @@ export default {
             if (this.nextChar === null) {
                 ++this.rowId;
                 // save to local storage
-                localStorage.setItem(
-                    `oimaster-${this.id}-${this.unit}`,
-                    this.rowId
-                );
+                localStorage.setItem(`oimaster-${this.id}-${this.unit}`, this.rowId);
                 this.currInput = '';
                 if (this.rowId === this.unitContent.length) {
                     this.finished = true;
@@ -140,17 +123,13 @@ export default {
                 }, 5000);
 
                 var list = [Bell1, Bell2];
-                var enter = new Audio(
-                    list[Math.floor(Math.random() * list.length)]
-                );
+                var enter = new Audio(list[Math.floor(Math.random() * list.length)]);
                 enter.play();
             }
         },
         async fetchHeader() {
             try {
-                const response = await fetch(
-                    `/lessons/${this.id}/oimaster.json`
-                );
+                const response = await fetch(`/lessons/${this.id}/oimaster.json`);
                 const data = await response.json();
                 if (!data[this.unit]) {
                     throw new Error('Invalid unit id');
@@ -164,15 +143,11 @@ export default {
             }
         },
         async fetchUnitContent() {
-            const response = await fetch(
-                `/lessons/${this.id}/${this.unit}.json`
-            );
+            const response = await fetch(`/lessons/${this.id}/${this.unit}.json`);
             const data = await response.json();
             this.unitContent = data;
             // read from local storage
-            var savedRowId = localStorage.getItem(
-                `oimaster-${this.id}-${this.unit}`
-            );
+            var savedRowId = localStorage.getItem(`oimaster-${this.id}-${this.unit}`);
             if (savedRowId) {
                 this.rowId = parseInt(savedRowId);
             }
