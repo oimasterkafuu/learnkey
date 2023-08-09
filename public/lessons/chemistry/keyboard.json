@@ -153,12 +153,9 @@
             "default": "p",
             "capslock": "P"
         },
-        "key-left-bracket": {
-        },
-        "key-right-bracket": {
-        },
-        "key-backslash": {
-        },
+        "key-left-bracket": {},
+        "key-right-bracket": {},
+        "key-backslash": {},
         "key-capslock": {},
         "key-a": {
             "default": "a",
@@ -196,10 +193,8 @@
             "default": "l",
             "capslock": "L"
         },
-        "key-semicolon": {
-        },
-        "key-quote": {
-        },
+        "key-semicolon": {},
+        "key-quote": {},
         "key-enter": {},
         "key-shift-left": {},
         "key-z": {
