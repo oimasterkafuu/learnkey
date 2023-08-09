@@ -43,7 +43,7 @@ export default {
                 this.lessonDescription = data[this.id].description;
                 this.fetchOptions();
             } catch (error) {
-                console.log(error.message);
+                // console.log(error.message);
                 this.$router.push('/');
                 return;
             }

@@ -24,29 +24,58 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: 18
+
       - name: Install dependencies
         run: yarn install
       - name: Build
         run: yarn build
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
-      - name: Upload artifact
+      - name: Upload page artifact
         uses: actions/upload-pages-artifact@v2
         with:
           path: './dist'
-      - name: Deploy to Pages
-        uses: actions/deploy-pages@v2
+      
       - name: Zip
         run: zip -r dist.zip dist
+      - name: Upload release artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: dist.zip
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: Production
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to Pages
+        id: deploy
+        uses: actions/deploy-pages@v2
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download release artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+          path: dist.zip
+
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
           files: dist.zip
           tag_name: ${{ github.ref }}
+          name: ${{ github.ref_name }}
           body: |
             You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
 
-            Or, you can go directly to the [Github Pages](${{ steps.deploy.outputs.url }}) to view the online demo.
+            Or, you can go to the [Online Demo](https://learn.oimaster.top/) to view the latest production version.
           draft: false
           prerelease: false
         env:

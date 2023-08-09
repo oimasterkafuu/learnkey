@@ -139,15 +139,11 @@ export default {
                     this.rightInfo = 'oimaster';
                 }, 5000);
 
-                try {
-                    var list = [Bell1, Bell2];
-                    var enter = new Audio(
-                        list[Math.floor(Math.random() * list.length)]
-                    );
-                    enter.play();
-                } catch (e) {
-                    console.log(e);
-                }
+                var list = [Bell1, Bell2];
+                var enter = new Audio(
+                    list[Math.floor(Math.random() * list.length)]
+                );
+                enter.play();
             }
         },
         async fetchHeader() {
@@ -163,7 +159,6 @@ export default {
                 this.unitDescription = data[this.unit].description;
                 this.fetchUnitContent();
             } catch (error) {
-                console.log(error.message);
                 this.$router.push(`/lesson/${this.id}/`);
                 return;
             }

@@ -455,23 +455,18 @@ export default {
             this.highlighted[keyId] = -1;
         },
         playSound(code) {
-            try {
-                if (code === 'Space') {
-                    var space = new Audio(Space);
-                    space.play();
-                } else if (code === 'Enter') {
-                    var list = [Bell1, Bell2];
-                    var enter = new Audio(
-                        list[Math.floor(Math.random() * list.length)]
-                    );
-                    enter.play();
-                } else {
-                    var other = new Audio(Key);
-                    other.play();
-                }
-            } catch (e) {
-                console.log('play sound error');
-                console.log(e);
+            if (code === 'Space') {
+                var space = new Audio(Space);
+                space.play();
+            } else if (code === 'Enter') {
+                var list = [Bell1, Bell2];
+                var enter = new Audio(
+                    list[Math.floor(Math.random() * list.length)]
+                );
+                enter.play();
+            } else {
+                var other = new Audio(Key);
+                other.play();
             }
         },
         handleKeyDown(event) {
