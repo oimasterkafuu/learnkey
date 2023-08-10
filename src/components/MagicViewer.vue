@@ -16,7 +16,17 @@
                         finished: content.finished[content.finished.length - 1]
                     }"
                 >
-                    {{ content.char[0] }}
+                    <span
+                        :class="{
+                            typing: !content.finished[content.finished.length - 1] && content.finishNum
+                        }"
+                        :style="{
+                            '--finished': Math.round((content.finishNum / content.finished.length) * 100) + '%'
+                        }"
+                    >
+                        {{ content.char[0] }}
+                    </span>
+
                     <rt>
                         <span
                             v-for="(char, index) in content.char[1]"
@@ -123,15 +133,18 @@ export default {
                 }
             } else if (Array.isArray(this.newRow[i])) {
                 var finishArray = [];
+                var finishNum = 0;
                 for (var _j = 0; _j < this.newRow[i][1].length; ++_j) {
                     finishArray.push({
                         finished: curr <= finished,
                         more: curr === finished + 1 ? this.currInput.slice(curr) : ''
                     });
+                    if (curr <= finished) ++finishNum;
                     ++curr;
                 }
                 this.render.push({
                     char: this.newRow[i],
+                    finishNum,
                     finished: finishArray.map((x) => x.finished),
                     more: finishArray.map((x) => x.more)
                 });
@@ -178,6 +191,11 @@ del {
     color: #cc0000;
     white-space: pre;
 }
+span.typing {
+    background: linear-gradient(to right, #008800 0%, #008800 var(--finished), #000000 var(--finished), #000000 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 @media (prefers-color-scheme: dark) {
     .viewer {
@@ -190,6 +208,16 @@ del {
     }
     del {
         color: #ff0000;
+    }
+
+    span.typing {
+        background: linear-gradient(
+            to right,
+            #00cc00 0%,
+            #00cc00 var(--finished),
+            #000000 var(--finished),
+            #000000 100%
+        );
     }
 }
 </style>
