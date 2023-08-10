@@ -215,9 +215,10 @@ span.typing {
             to right,
             #00cc00 0%,
             #00cc00 var(--finished),
-            #000000 var(--finished),
-            #000000 100%
+            #ffffff var(--finished),
+            #ffffff 100%
         );
+        -webkit-background-clip: text;
     }
 }
 </style>
