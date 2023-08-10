@@ -76,10 +76,21 @@ export default {
             }
 
             return [];
+        },
+        simplifyHint(hint) {
+            for (var i = 1; i < hint.length; i++) {
+                if (hint[i][1] === false && hint[i][0] === hint[i - 1][0]) {
+                    hint.splice(i - 1, 2);
+                    i--;
+                }
+            }
+
+            return hint;
         }
     },
     mounted() {
         this.answer = this.makeHint(this.content);
+        this.answer = this.simplifyHint(this.answer);
     }
 };
 </script>

@@ -1,6 +1,5 @@
 /* eslint-disable */
-var json = [
-];
+var json = [];
 
 const katakana2hiragana = {
     ア: 'あ',

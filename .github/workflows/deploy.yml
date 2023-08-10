@@ -1,99 +1,99 @@
 name: Build and Deploy
 
 on:
-  push:
-    tags:
-      - v*
-  
-  workflow_dispatch:
+    push:
+        tags:
+            - v*
+
+    workflow_dispatch:
 
 permissions:
-  contents: write
-  pages: write
-  id-token: write
+    contents: write
+    pages: write
+    id-token: write
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: 18
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                  fetch-depth: 0
+            - name: Setup Node.js
+              uses: actions/setup-node@v2
+              with:
+                  node-version: 18
 
-      - name: Install dependencies
-        run: yarn install
-      - name: Build
-        run: yarn build
-      
-      - name: Zip
-        run: zip -r dist.zip dist
-      - name: Upload artifact
-        uses: actions/upload-artifact@v2
-        with:
-          name: dist
-          path: dist.zip
+            - name: Install dependencies
+              run: yarn install
+            - name: Build
+              run: yarn build
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: Production
-      url: ${{ steps.deploy.outputs.page_url }}
-    steps:
-      - name: Download artifact
-        id: download
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
-      - name: Unzip
-        run: unzip -o dist.zip
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload page artifact
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: './dist'
-      - name: Deploy to Pages
-        id: deploy
-        uses: actions/deploy-pages@v2
+            - name: Zip
+              run: zip -r dist.zip dist
+            - name: Upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: dist
+                  path: dist.zip
 
-  release:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download artifact
-        id: download
-        uses: actions/download-artifact@v2
-        with:
-          name: dist
-      - name: SHA256
-        # run: echo "::set-output name=sha256::$(sha256sum dist.zip | cut -d ' ' -f 1)"
-        run: echo "sha256=$(sha256sum dist.zip | cut -d ' ' -f 1)" >> $GITHUB_ENV
-        id: sha256
-      - name: Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: './dist.zip'
-          tag_name: ${{ github.ref }}
-          name: ${{ github.ref_name }}
-          body: |
-            ## Release ${{ github.ref_name }} :tada:
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        environment:
+            name: Production
+            url: ${{ steps.deploy.outputs.page_url }}
+        steps:
+            - name: Download artifact
+              id: download
+              uses: actions/download-artifact@v2
+              with:
+                  name: dist
+            - name: Unzip
+              run: unzip -o dist.zip
+            - name: Setup Pages
+              uses: actions/configure-pages@v3
+            - name: Upload page artifact
+              uses: actions/upload-pages-artifact@v2
+              with:
+                  path: './dist'
+            - name: Deploy to Pages
+              id: deploy
+              uses: actions/deploy-pages@v2
 
-            Hello, there :wave: We've got release ${{ github.ref_name }} for you!
+    release:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - name: Download artifact
+              id: download
+              uses: actions/download-artifact@v2
+              with:
+                  name: dist
+            - name: SHA256
+              # run: echo "::set-output name=sha256::$(sha256sum dist.zip | cut -d ' ' -f 1)"
+              run: echo "sha256=$(sha256sum dist.zip | cut -d ' ' -f 1)" >> $GITHUB_ENV
+              id: sha256
+            - name: Release
+              uses: softprops/action-gh-release@v1
+              with:
+                  files: './dist.zip'
+                  tag_name: ${{ github.ref }}
+                  name: ${{ github.ref_name }}
+                  body: |
+                      ## Release ${{ github.ref_name }} :tada:
 
-            You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
+                      Hello, there :wave: We've got release ${{ github.ref_name }} for you!
 
-            The SHA256 checksum of the `dist.zip` file is `${{ env.sha256 }}`. You can use this to verify the integrity of the file :lock:
+                      You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
 
-            Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before :wink:
+                      The SHA256 checksum of the `dist.zip` file is `${{ env.sha256 }}`. You can use this to verify the integrity of the file :lock:
 
-            Enjoy! :kissing_heart:
-          draft: false
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                      Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before :wink:
+
+                      Enjoy! :kissing_heart:
+                  draft: false
+                  prerelease: false
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -6,7 +6,7 @@ let article = `
 
 article = article.replaceAll(/\n/g, ' ');
 
-let sentences = article.split(/([.?!])/);
+let sentences = article.split(/([.?!]["']*)/);
 
 let array = [];
 
@@ -20,6 +20,9 @@ for (let i = 0; i < sentences.length; i += 2) {
             if (index === -1) {
                 index = sentence.lastIndexOf(' ', 60);
             }
+            if (sentence.slice(index + 1).includes('"') || sentence.slice(index + 1).includes("'")) {
+                ++index;
+            }
             array.push(sentence.slice(0, index + 1).trim());
             sentence = sentence.slice(index + 1).trim();
         }
@@ -28,5 +31,7 @@ for (let i = 0; i < sentences.length; i += 2) {
         array.push(sentence + punctuation);
     }
 }
+
+array = array.filter((sentence) => sentence !== 'undefined');
 
 copy(JSON.stringify(array));

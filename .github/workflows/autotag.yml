@@ -1,0 +1,24 @@
+name: Auto tag new version
+
+on:
+    push:
+        branches:
+            - master
+
+jobs:
+    tag:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Read version from package.json
+              run: echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+            - name: Read the last tag
+              run: echo "last_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
+            - name: Compare the last tag with the current version
+              run: echo "is_new_tag=$(test ${{ env.last_tag }} != ${{ env.current_version }} && echo 'true' || echo 'false')" >> $GITHUB_ENV
+            - name: Create a new tag
+              if: env.is_new_tag == 'true'
+              run: |
+                  git tag ${{ env.current_version }}
+                  git push origin ${{ env.current_version }}
