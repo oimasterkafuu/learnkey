@@ -1,14 +1,19 @@
+<p align="center">
+    <img src="https://learn.oimaster.top/img/logo.png"/><br>
+    <strong>Learn Key｜现代化设计的打字程序 :keyboard:</strong>
+</p>
+
 # Learn Key
 
-自动部署状态：[![Build and Deploy](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml/badge.svg)](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml)
+自动部署状态：[![Build and Deploy](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml/badge.svg)](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml) :rocket:
 
-无论是学习打字，还是背诵文章，甚至是记忆化学元素，都可以使用这个软件。
+无论是学习打字，还是背诵文章，甚至是记忆化学元素，都可以使用这个软件。:smile:
 
-本软件无需安装，直接打开 [在线 Demo](https://learn.oimaster.top) 即可使用。网站包含 Service Worker，可以离线使用。
+本软件无需安装，直接打开 [在线 Demo](https://learn.oimaster.top) 即可使用。网站包含 Service Worker，可以离线使用。:tada:
 
-你也可以自行部署。本项目使用 MIT 协议开源，在保留版权信息的情况下，你可以自由使用、修改、分发本项目。
+你也可以自行部署。本项目使用 MIT 协议开源，在保留版权信息的情况下，你可以自由使用、修改、分发本项目。:heart:
 
-当然，欢迎你提出 Issue 或者 Pull Request。如果你能给一个 Star，那就更好了。
+当然，欢迎你提出 Issue 或者 Pull Request。如果你能给一个 Star，那就更好了。:star:
 
 ## 开发指南
 
