@@ -10,6 +10,7 @@ module.exports = defineConfig({
             return args;
         });
     },
+    productionSourceMap: false,
     pwa: {
         name: 'Learn Key',
         themeColor: '#8db3f1',
