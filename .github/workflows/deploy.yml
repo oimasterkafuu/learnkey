@@ -15,6 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         outputs:
             needupdate: ${{ steps.compare.outputs.needupdate }}
+            newversion: ${{ steps.get_version.outputs.current_version }}
         steps:
             - name: Checkout
               uses: actions/checkout@v2
@@ -23,7 +24,10 @@ jobs:
               with:
                   node-version: 18
             - name: Read version from package.json
-              run: echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+              id: get_version
+              run: |
+                  echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+                  echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_OUTPUT
             - name: Fetch the tags from the remote repository
               run: git fetch --tags
             - name: Read the last tag
@@ -90,7 +94,9 @@ jobs:
               uses: actions/deploy-pages@v2
 
     release:
-        needs: build
+        needs:
+            - tag
+            - build
         runs-on: ubuntu-latest
         steps:
             - name: Download artifact
@@ -106,12 +112,12 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   files: './dist.zip'
-                  tag_name: ${{ github.ref }}
-                  name: ${{ github.ref_name }}
+                  tag_name: refs/tags/${{ needs.tag.outputs.newversion }}
+                  name: ${{ needs.tag.outputs.newversion }}
                   body: |
-                      ## Release ${{ github.ref_name }} :tada:
+                      ## Release ${{ needs.tag.outputs.newversion }} :tada:
 
-                      Hello, there :wave: We've got release ${{ github.ref_name }} for you!
+                      Hello, there :wave: We've got release ${{ needs.tag.outputs.newversion }} for you!
 
                       You can download the `dist.zip` file from the Assets section below to get the automatically built static resources and deploy them to your own server.
 
@@ -123,9 +129,9 @@ jobs:
 
                       ---
 
-                      ## 发行版 ${{ github.ref_name }} :tada:
+                      ## 发行版 ${{ needs.tag.outputs.newversion }} :tada:
 
-                      您好，这里是 oimasterkafuu :wave: 我们为您带来了 ${{ github.ref_name }} 版本的发布！
+                      您好，这里是 oimasterkafuu :wave: 我们为您带来了 ${{ needs.tag.outputs.newversion }} 版本的发布！
 
                       您可以从下面的 Assets 部分下载 `dist.zip` 文件，获取自动构建的静态资源并将其部署到您自己的服务器上。
 
