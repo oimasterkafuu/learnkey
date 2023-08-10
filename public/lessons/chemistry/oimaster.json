@@ -2,5 +2,9 @@
     "periodictableofelements": {
         "title": "元素周期表",
         "description": "元素周期表是一种将所有已知的化学元素按照原子序数和电子排布规律排列的表格，它是化学学科的基础之一，也是人类探索物质世界的重要成果，更是一幅描绘自然界奥秘、阐述物质本质、抒发人类求知欲望的科学图画。"
+    },
+    "periodictableofelementspinyinver": {
+        "title": "元素周期表 ～拼音 ver.～",
+        "description": "元素周期表是生僻字的集合，既然语文书上没有，只能靠 Learn Key 帮你记住了。"
     }
 }
