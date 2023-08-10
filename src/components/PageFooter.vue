@@ -6,7 +6,10 @@
             使用 <a href="https://github.com/oimasterkafuu/learnkey/blob/master/LICENSE">MIT</a> 协议开源
         </span>
         <span>
-            <span v-if="offline">离线模式，</span>
+            <span v-if="offline" class="offline-message">
+                <OfflineSVG />
+                您目前处于离线状态，
+            </span>
             &copy; {{ copyright }}
             <a href="https://github.com/oimasterkafuu/">oimasterkafuu</a>
         </span>
@@ -14,8 +17,13 @@
 </template>
 
 <script>
+import OfflineSVG from './PageFooter/OfflineSVG.vue';
+
 export default {
     name: 'PageFooter',
+    components: {
+        OfflineSVG
+    },
     data() {
         return {
             appVersion: process.env.VUE_APP_VERSION,
@@ -57,6 +65,13 @@ a {
 }
 a:hover {
     text-decoration: underline #000;
+}
+
+.offline-message svg {
+    width: 1.2em;
+    height: 1.2em;
+    margin-right: 0.2em;
+    vertical-align: middle;
 }
 
 @media (prefers-color-scheme: dark) {
