@@ -90,9 +90,23 @@ jobs:
 
                       The SHA256 checksum of the `dist.zip` file is `${{ env.sha256 }}`. You can use this to verify the integrity of the file :lock:
 
-                      Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before :wink:
+                      Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before v0.5.0-beta :wink:
 
                       Enjoy! :kissing_heart:
+                      
+                      ---
+
+                      ## 发行版 ${{ github.ref_name }} :tada:
+
+                      您好，这里是 oimasterkafuu :wave: 我们为您带来了 ${{ github.ref_name }} 版本的发布！
+
+                      您可以从下面的 Assets 部分下载 `dist.zip` 文件，获取自动构建的静态资源并将其部署到您自己的服务器上。
+
+                      `dist.zip` 文件的 SHA256 校验和为 `${{ env.sha256 }}`。您可以使用它来验证文件的完整性 :lock:
+
+                      或者，您可以前往[在线演示](https://learn.oimaster.top/)查看最新的生产版本 :rocket: 如果您在 v0.5.0-beta 版本之前访问过演示，请记得清除浏览器缓存 :wink:
+
+                      祝您使用愉快！ :kissing_heart:
                   draft: false
                   prerelease: false
               env:

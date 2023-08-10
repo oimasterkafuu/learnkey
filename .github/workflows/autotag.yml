@@ -11,6 +11,10 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18
             - name: Read version from package.json
               run: echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
             - name: Read the last tag

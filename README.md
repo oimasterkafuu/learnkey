@@ -1,5 +1,7 @@
 # Learn Key
 
+自动部署状态：[![Build and Deploy](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml/badge.svg)](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml)
+
 无论是学习打字，还是背诵文章，甚至是记忆化学元素，都可以使用这个软件。
 
 本软件无需安装，直接打开 [在线 Demo](https://learn.oimaster.top) 即可使用。网站包含 Service Worker，可以离线使用。
