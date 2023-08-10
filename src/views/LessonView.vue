@@ -1,5 +1,5 @@
 <template>
-    <PageHeader :title="lessonTitle" :description="lessonDescription" />
+    <PageHeader :title="lessonTitle" :description="lessonDescription" prepath="/" />
     <main>
         <SelectBar :options="options" @selected="optionSelected" v-if="loaded" />
     </main>

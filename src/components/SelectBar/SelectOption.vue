@@ -28,7 +28,7 @@ export default {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: box-shadow 0.3s ease-in-out;
+    transition: box-shadow 0.3s ease-in-out, scale 0.2s ease-in-out;
 }
 
 .title {
@@ -43,6 +43,7 @@ export default {
 
 .select-option:hover {
     box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+    scale: 1.005;
 }
 
 @media (prefers-color-scheme: dark) {

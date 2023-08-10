@@ -1,5 +1,5 @@
 <template>
-    <PageHeader :title="unitTitle" :description="unitDescription" />
+    <PageHeader :title="unitTitle" :description="unitDescription" :prepath="`/lesson/${id}`" />
     <main>
         <MagicViewer :row="unitContent[rowId]" :currInput="currInput" v-if="loaded && !finished" :key="currInput" />
         <MagicHint
