@@ -2,10 +2,8 @@ name: Build and Deploy
 
 on:
     push:
-        tags:
-            - v*
-
-    workflow_dispatch:
+        branches:
+            - master
 
 permissions:
     contents: write
@@ -13,7 +11,36 @@ permissions:
     id-token: write
 
 jobs:
+    tag:
+        runs-on: ubuntu-latest
+        outputs:
+            needupdate: ${{ steps.compare.outputs.needupdate }}
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+            - name: Setup Node.js
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 18
+            - name: Read version from package.json
+              run: echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+            - name: Fetch the tags from the remote repository
+              run: git fetch --tags
+            - name: Read the last tag
+              run: echo "last_tag=$(git tag --sort=-creatordate | head -n 1)" >> $GITHUB_ENV
+            - name: Compare the last tag with the current version
+              id: compare
+              run: |
+                  echo "is_new_tag=$(test ${{ env.last_tag }} != ${{ env.current_version }} && echo 'true' || echo 'false')" >> $GITHUB_ENV
+                  echo "needupdate=$(test ${{ env.last_tag }} != ${{ env.current_version }} && echo 'true' || echo 'false')" >> $GITHUB_OUTPUT
+            - name: Create a new tag
+              if: env.is_new_tag == 'true'
+              run: |
+                  git tag ${{ env.current_version }}
+                  git push origin ${{ env.current_version }}
     build:
+        needs: tag
+        if: needs.tag.outputs.needupdate == 'true'
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -93,7 +120,7 @@ jobs:
                       Or, you can go to the [online demo](https://learn.oimaster.top/) to view the latest production version :rocket: Remember to clear the cache of your browser if you have visited the demo before v0.5.0-beta :wink:
 
                       Enjoy! :kissing_heart:
-                      
+
                       ---
 
                       ## 发行版 ${{ github.ref_name }} :tada:
