@@ -67,13 +67,6 @@ a:hover {
     text-decoration: underline #000;
 }
 
-.offline-message svg {
-    width: 1.2em;
-    height: 1.2em;
-    margin-right: 0.2em;
-    vertical-align: middle;
-}
-
 @media (prefers-color-scheme: dark) {
     a {
         text-decoration-color: #777;
