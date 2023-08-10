@@ -17,6 +17,8 @@ jobs:
                   node-version: 18
             - name: Read version from package.json
               run: echo "current_version=v$(node -p -e "require('./package.json').version")" >> $GITHUB_ENV
+            - name: Fetch the tags from the remote repository
+              run: git fetch --tags
             - name: Read the last tag
               run: echo "last_tag=$(git describe --tags --abbrev=0)" >> $GITHUB_ENV
             - name: Compare the last tag with the current version
