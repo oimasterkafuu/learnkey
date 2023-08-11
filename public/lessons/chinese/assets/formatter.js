@@ -7,7 +7,7 @@ let article = `
 article = article.replaceAll(/\n/g, ' ');
 article = article.replaceAll('　', ' ');
 
-let sentences = article.split(/([，。！？])/);
+let sentences = article.split(/([，。、！？])/);
 
 let array = [];
 
