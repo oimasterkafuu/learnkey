@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import '@/assets/webfont/font.css';
+import '@/assets/fonts/fonts.css';
 import '@/assets/style.css';
 
 import PageFooter from '@/components/PageFooter.vue';
