@@ -5,6 +5,10 @@ let article = `
 `;
 
 article = article.replaceAll(/\n/g, ' ');
+article = article.replaceAll('“', '"');
+article = article.replaceAll('”', '"');
+article = article.replaceAll('’', "'");
+article = article.replaceAll('—', '- ');
 
 let sentences = article.split(/([.?!]["']*)/);
 
