@@ -28,7 +28,9 @@ export default {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: box-shadow 0.3s ease-in-out, scale 0.2s ease-in-out;
+    transition:
+        box-shadow 0.3s ease-in-out,
+        scale 0.2s ease-in-out;
 }
 
 .title {

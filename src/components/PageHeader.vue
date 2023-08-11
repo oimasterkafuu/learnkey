@@ -1,7 +1,11 @@
 <template>
     <header>
-        <router-link class="back-icon" v-if="prepath" :to="prepath">􀯷</router-link>
-        <span class="back-icon" v-else>􀥆</span>
+        <router-link class="back-icon" v-if="prepath" :to="prepath">
+            <BackIcon />
+        </router-link>
+        <span class="back-icon" v-else>
+            <HomeIcon />
+        </span>
         <h1 class="title">{{ title }}</h1>
         <p class="description">
             <span class="inner-description">{{ description }}</span>
@@ -10,8 +14,15 @@
 </template>
 
 <script>
+import BackIcon from './SVGs/BackIcon.vue';
+import HomeIcon from './SVGs/HomeIcon.vue';
+
 export default {
     name: 'PageHeader',
+    components: {
+        BackIcon,
+        HomeIcon
+    },
     props: {
         title: {
             type: String,
@@ -38,18 +49,17 @@ header {
 }
 
 .back-icon {
-    font-size: 2rem;
-    text-align: center;
-    color: #ccc;
-    margin-top: 0.2em;
-    text-decoration: none;
-    text-shadow: none;
     cursor: pointer;
-    transition: color 0.2s ease-in-out, scale 0.2s ease-in-out;
+    transition: scale 0.2s ease-in-out;
 }
 
-.back-icon:hover {
-    color: #000;
+.back-icon svg {
+    fill: #ccc;
+    transition: fill 0.2s ease-in-out;
+}
+
+.back-icon:hover svg {
+    fill: #000;
 }
 a.back-icon:hover {
     scale: 1.1;
@@ -75,11 +85,11 @@ a.back-icon:hover {
     header {
         text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     }
-    .back-icon {
-        color: #444;
+    .back-icon svg {
+        fill: #444;
     }
-    .back-icon:hover {
-        color: #fff;
+    .back-icon:hover svg {
+        fill: #fff;
     }
 }
 

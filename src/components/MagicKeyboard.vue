@@ -556,7 +556,7 @@ div.keyboardRow {
 
 div.key.op {
     font-family:
-        'SF Pro',
+        /* 'SF Pro', */
         system-ui,
         -apple-system,
         BlinkMacSystemFont,
@@ -621,18 +621,6 @@ div.spaceRight {
     color: #aaa;
 }
 
-div.highlighted {
-    transition: ease-in-out 0.1s;
-    background-color: #333 !important;
-    color: white;
-}
-
-div.error {
-    transition: ease-in-out 0.1s;
-    background-color: #cc0000 !important;
-    color: white;
-}
-
 @media (prefers-color-scheme: dark) {
     div.keyboard {
         background-color: #222;
@@ -643,15 +631,6 @@ div.error {
 
     div.key.op {
         background-color: #222;
-    }
-
-    div.highlighted {
-        background-color: #ccc !important;
-        color: black;
-    }
-    div.error {
-        background-color: #ff0000 !important;
-        color: white;
     }
 
     div.spaceLeft,

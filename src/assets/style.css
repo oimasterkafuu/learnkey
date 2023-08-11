@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-family: 'Songti SC', 'SF Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Songti SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 header {
@@ -29,6 +29,10 @@ main {
     body {
         background-color: black;
         color: white;
+    }
+
+    svg {
+        fill: white;
     }
 }
 

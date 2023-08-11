@@ -17,7 +17,7 @@
 </template>
 
 <script>
-import OfflineSVG from './PageFooter/OfflineSVG.vue';
+import OfflineSVG from './SVGs/OfflineIcon.vue';
 
 export default {
     name: 'PageFooter',
