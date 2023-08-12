@@ -193,5 +193,10 @@ main {
 }
 div.unit-interaction {
     width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 </style>

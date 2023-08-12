@@ -164,7 +164,7 @@ export default {
 
 <style scoped>
 .viewer {
-    width: 100%;
+    width: calc(100% - 32px);
     margin: 15px auto;
     font-size: 2em;
     border-radius: 2em;
