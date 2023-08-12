@@ -97,17 +97,7 @@ export default {
             var viewerMainWidth = this.$el.querySelector('.viewer-main').scrollWidth;
             var widthScale = viewerWidth / viewerMainWidth;
 
-            // var viewerHeight = this.$el.offsetHeight - 32;
-            // var viewerMainHeight =
-            //     this.$el.querySelector('.viewer-main').scrollHeight;
-            // var heightScale = viewerHeight / viewerMainHeight;
-
-            // console.log('width', viewerWidth, viewerMainWidth, widthScale);
-            // console.log('height', viewerHeight, viewerMainHeight, heightScale);
-
-            // var scale = Math.min(widthScale, heightScale);
             var scale = widthScale;
-
             var currScale = parseFloat(getComputedStyle(this.$el.querySelector('.viewer-main')).fontSize);
 
             var targetSize = Math.min(32, scale * currScale);

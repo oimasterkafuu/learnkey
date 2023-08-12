@@ -36,6 +36,28 @@ export default {
             type: String,
             default: ''
         }
+    },
+    methods: {
+        autoSize() {
+            var titleWidth = this.$el.querySelector('.title').offsetWidth;
+            var titleMainWidth = this.$el.querySelector('.title').scrollWidth;
+            var widthScale = titleWidth / titleMainWidth;
+
+            var scale = widthScale;
+
+            var currScale = parseFloat(getComputedStyle(this.$el.querySelector('.title')).fontSize);
+
+            var targetSize = Math.min(32, scale * currScale);
+
+            this.$el.querySelector('.title').style.fontSize = targetSize + 'px';
+        }
+    },
+    updated() {
+        this.autoSize();
+        window.addEventListener('resize', this.autoSize);
+    },
+    beforeUnmount() {
+        window.removeEventListener('resize', this.autoSize);
     }
 };
 </script>
@@ -68,6 +90,8 @@ a.back-icon:hover {
 .title {
     flex: 0.6;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .description {
