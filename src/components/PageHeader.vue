@@ -36,28 +36,6 @@ export default {
             type: String,
             default: ''
         }
-    },
-    methods: {
-        autoSize() {
-            var titleWidth = this.$el.querySelector('.title').offsetWidth;
-            var titleMainWidth = this.$el.querySelector('.title').scrollWidth;
-            var widthScale = titleWidth / titleMainWidth;
-
-            var scale = widthScale;
-
-            var currScale = parseFloat(getComputedStyle(this.$el.querySelector('.title')).fontSize);
-
-            var targetSize = Math.min(32, scale * currScale);
-
-            this.$el.querySelector('.title').style.fontSize = targetSize + 'px';
-        }
-    },
-    updated() {
-        this.autoSize();
-        window.addEventListener('resize', this.autoSize);
-    },
-    beforeUnmount() {
-        window.removeEventListener('resize', this.autoSize);
     }
 };
 </script>
@@ -83,19 +61,20 @@ header {
 .back-icon:hover svg {
     fill: #000;
 }
+
 a.back-icon:hover {
     scale: 1.1;
 }
 
 .title {
-    flex: 0.6;
+    flex-grow: 0.6;
     text-align: center;
     white-space: nowrap;
-    overflow: hidden;
+    margin: 0 1em;
 }
 
 .description {
-    flex: 1;
+    flex-grow: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -109,9 +88,11 @@ a.back-icon:hover {
     header {
         text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.5);
     }
+
     .back-icon svg {
         fill: #444;
     }
+
     .back-icon:hover svg {
         fill: #fff;
     }
