@@ -27,6 +27,7 @@ export default {
     data() {
         return {
             appVersion: process.env.VUE_APP_VERSION,
+            appVersionSuffix: process.env.VUE_APP_VERSION_SUFFIX,
             offline: navigator.onLine === false
         };
     },
@@ -40,10 +41,9 @@ export default {
             return 'v' + this.appVersion;
         },
         versionFull() {
-            var versionArr = this.appVersion.split('.');
             var result = this.version;
-            if (versionArr[0] < 1) {
-                result += '-beta';
+            if (this.appVersionSuffix) {
+                result += '-' + this.appVersionSuffix;
             }
             return result;
         }
