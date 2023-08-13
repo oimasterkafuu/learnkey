@@ -1,13 +1,18 @@
 <template>
     <PageHeader :title="unitTitle" :description="unitDescription" :prepath="`/lesson/${id}`" />
     <main>
-        <MagicViewer :row="unitContent[rowId]" :currInput="currInput" v-if="loaded && !finished" :key="currInput" />
+        <MagicViewer
+            :row="unitContent[rowId]"
+            :currInput="currInput"
+            v-if="loaded && !finished"
+            :key="rowId + currInput"
+        />
         <MagicHint
             :keyboard="keyboardJson"
             :content="nextChar"
             v-if="loaded && !finished"
             :showHint="showHint"
-            :key="currInput"
+            :key="rowId + currInput"
         />
         <div class="unit-interaction">
             <MagicKeyboard
@@ -17,7 +22,15 @@
                 :rightInfo="rightInfo"
                 v-if="loaded && !finished"
             />
-            <BeautifulProgress :progress="rowId / unitContent.length" v-if="loaded && !finished" />
+            <div class="progress-container">
+                <BeautifulProgress :progress="rowId / unitContent.length" v-if="loaded && !finished" />
+                <ResetIcon
+                    class="reset-icon"
+                    @click="reset"
+                    :useful="rowId !== 0 ? 'true' : 'false'"
+                    v-if="loaded && !finished"
+                />
+            </div>
         </div>
     </main>
     <SpinLoader v-if="!loaded" />
@@ -32,6 +45,7 @@ import MagicViewer from '@/components/MagicViewer.vue';
 import SpinLoader from '@/components/SpinLoader.vue';
 import BeautifulProgress from '@/components/BeautifulProgress.vue';
 import FinishDialog from '@/components/UnitView/FinishDialog.vue';
+import ResetIcon from '@/components/SVGs/ResetIcon.vue';
 
 import Bell1 from '@/assets/sounds/bell1.wav';
 import Bell2 from '@/assets/sounds/bell2.wav';
@@ -45,7 +59,8 @@ export default {
         MagicViewer,
         SpinLoader,
         BeautifulProgress,
-        FinishDialog
+        FinishDialog,
+        ResetIcon
     },
     data() {
         return {
@@ -168,6 +183,20 @@ export default {
         countKpm() {
             this.kpmSpeed = this.keysIn10Seconds * 6;
             this.keysIn10Seconds = 0;
+        },
+        reset() {
+            if (this.rowId === 0) return;
+
+            this.rowId = 0;
+            localStorage.removeItem(`oimaster-${this.id}-${this.unit}`);
+            this.currInput = '';
+            this.finished = false;
+            this.rightInfo = '进度被重置';
+
+            clearTimeout(this.savedTimeout);
+            this.savedTimeout = setTimeout(() => {
+                this.rightInfo = 'oimaster';
+            }, 5000);
         }
     },
     mounted() {
@@ -198,5 +227,34 @@ div.unit-interaction {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+}
+div.progress-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reset-icon {
+    cursor: pointer;
+    fill: #ccc;
+    transition:
+        fill 0.2s ease-in-out,
+        scale 0.2s ease-in-out;
+}
+
+.reset-icon[useful='true']:hover {
+    scale: 1.1;
+    fill: #cc0000;
+}
+
+@media (prefers-color-scheme: dark) {
+    .reset-icon {
+        fill: #444;
+    }
+
+    .reset-icon[useful='true']:hover {
+        fill: #ff0000;
+    }
 }
 </style>
