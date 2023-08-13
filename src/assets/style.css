@@ -27,12 +27,12 @@ main {
 @media (prefers-color-scheme: dark) {
     html,
     body {
-        background-color: black;
-        color: white;
+        background-color: #000;
+        color: #fff;
     }
 
     svg {
-        fill: white;
+        fill: #fff;
     }
 }
 
