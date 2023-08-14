@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     height: 100%;
-    font-family: 'Songti SC', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Songti SC', 'SimSun', serif;
 }
 
 header {
