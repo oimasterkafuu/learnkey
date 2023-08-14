@@ -5,6 +5,8 @@
 
 # Learn Key
 
+也可以称作 [oimaster Japanese Typer](https://github.com/oimasterkafuu/oimasterjapanesetyper) 2.0 :thumbsup:
+
 自动部署状态：[![Build and Deploy](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml/badge.svg)](https://github.com/oimasterkafuu/learnkey/actions/workflows/deploy.yml) :rocket:
 
 无论是学习打字，还是背诵文章，甚至是记忆化学元素，都可以使用这个软件。:smile:
